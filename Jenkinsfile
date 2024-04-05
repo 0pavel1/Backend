@@ -5,16 +5,16 @@ pipeline {
         stage('Build') {
             steps {
                 checkout scm
-                bat '''
+                sh '''
                 docker-compose build
-                
+                docker-compose up
                 '''
             }
         }
         stage('Test') {
             steps {
                 echo "Test"
-                bat '''
+                sh '''
                     docker-compose down
                     '''
             }
