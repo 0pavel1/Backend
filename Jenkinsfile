@@ -7,7 +7,8 @@ pipeline {
                 checkout scm
                 sh '''
                 docker-compose build
-                docker-compose up
+                docker-compose up -d
+                sleep 30
                 '''
             }
         }
