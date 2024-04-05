@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 checkout scm
-                sh '''
+                bat '''
                 docker-compose build
                 
                 '''
@@ -14,7 +14,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo "Test"
-                sh '''
+                bat '''
                     docker-compose down
                     '''
             }
