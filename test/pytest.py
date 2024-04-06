@@ -1,7 +1,7 @@
 import requests
 
 # URL API
-base_url = "http://localhost:5000/api"
+base_url = "http://localhost:6000/api"
 
 def test_registration():
     url = f"{base_url}/registration"
