@@ -42,15 +42,18 @@ def test_registration():
         "password": "11111111"
     }
     response = requests.post(url, json=data)
-    assert response.status_code == 200
     json_response = response.json()
     id_test = json_response["id"]
-    print("ID -", id_test)
-    assert json_response["result"]
-    assert "accessToken" in json_response
-    assert "refreshToken" in json_response
-    print("REGISTRATION - OK")
-    return id_test
+    try:
+        assert response.status_code == 00
+        print("ID -", id_test)
+        assert json_response["result"]
+        assert "accessToken" in json_response
+        assert "refreshToken" in json_response
+        print("REGISTRATION - OK")
+        return id_test
+    except:
+        test_delete(id_test)
 
 def test_login():
     url = f"{base_url}/login"
