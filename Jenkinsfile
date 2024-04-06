@@ -16,7 +16,7 @@ pipeline {
             steps {
                 echo "Test"
                 sh '''
-                    python test/pytest.py
+                    python3 test/pytest.py
                     docker-compose down
                     '''
             }
