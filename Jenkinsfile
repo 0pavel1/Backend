@@ -20,7 +20,13 @@ pipeline {
                     docker-compose stop
                     '''
             }
+            post { 
+                always { 
+                    echo 'I will always say Hello again!'
+                }
+            }
         }
+    
         stage("Deploy"){
             steps{
                 echo "Deploy"
