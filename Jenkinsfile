@@ -17,7 +17,7 @@ pipeline {
                 sh '''
                     pip install requests
                     python3 test/pytest.py
-                    docker-compose down
+                    docker-compose stop
                     '''
             }
         }

@@ -1,5 +1,36 @@
 import requests
+"""import psycopg2
 
+def execute_query(connection, query):
+    connection.autocommit = True
+    cursor = connection.cursor()
+    cursor.execute(query)
+    print("Query executed successfully")
+
+connection = psycopg2.connect(
+            database="tictacpostgres",
+            user='postgres',
+            password='admin',
+            host="localhost",
+            port="5400",
+        )
+sql= 
+create table "User"(
+	"id" bigint,
+	"email" text,
+	"login" text NOT NULL,
+	"password" varchar,
+	"skin" int DEFAULT 0,
+	primary key ("id")
+);
+create table "UserToken"(
+	"userId" bigint,
+	"refreshToken" text,
+	foreign key ("userId") references "User" ("id") ON DELETE CASCADE
+);
+
+execute_query(connection, sql)
+"""
 # URL API
 base_url = "http://localhost:6000/api"
 

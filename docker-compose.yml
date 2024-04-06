@@ -12,6 +12,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: admin
       POSTGRES_DB: tictacpostgres
+    ports:
+      - ${POSTGRES_PORT}:5432
 
   adminer:
     image: adminer
