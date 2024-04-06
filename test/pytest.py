@@ -42,7 +42,7 @@ def test_registration():
         "password": "11111111"
     }
     response = requests.post(url, json=data)
-    assert response.status_code == 00
+    assert response.status_code == 200
     json_response = response.json()
     id_test = json_response["id"]
     print("ID -", id_test)
