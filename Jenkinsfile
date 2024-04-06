@@ -15,6 +15,7 @@ pipeline {
             steps {
                 echo "Test"
                 sh '''
+                    pip install requests
                     python3 test/pytest.py
                     docker-compose down
                     '''
