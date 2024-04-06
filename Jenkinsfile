@@ -17,12 +17,11 @@ pipeline {
                 sh '''
                     pip install requests
                     python3 test/pytest.py
-                    docker-compose stop
                     '''
             }
             post { 
                 always { 
-                    echo 'I will always say Hello again!'
+                   sh "docker-compose stop"
                 }
             }
         }
