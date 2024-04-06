@@ -8,7 +8,7 @@ pipeline {
                 sh '''
                 docker-compose build
                 docker-compose up -d
-                sleep 30
+                sleep 10
                 '''
             }
         }
@@ -16,6 +16,7 @@ pipeline {
             steps {
                 echo "Test"
                 sh '''
+                    python test/pytest.py
                     docker-compose down
                     '''
             }
@@ -23,6 +24,12 @@ pipeline {
         stage("Deploy"){
             steps{
                 echo "Deploy"
+                sh """cd /var/backend-serv
+                    docker-compose stop
+                    cp -r /var/jenkins/workspace/back/* /var/backend-serv
+                    docker-compose build
+                    docker-compose up -d
+                """
             }    
         }
     }
